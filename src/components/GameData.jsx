@@ -12,6 +12,7 @@ function GameData({
 }) {
   return (
     <>
+      {/* ============================= Previous Game Data ==================== */}
       <motion.div
         variants={gameData}
         animate={isGameStart ? 'hide' : 'show'}
@@ -59,7 +60,7 @@ function GameData({
         </div>
       </motion.div>
 
-      {/* ==============> For Mobile <==================== */}
+      {/* ==============> Show For Mobile <==================== */}
       {isModalClick ? (
         <div className="w-full h-full bg-black bg-opacity-60 flex justify-center items-center">
           <motion.div

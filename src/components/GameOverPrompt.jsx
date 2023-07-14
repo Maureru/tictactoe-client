@@ -10,6 +10,7 @@ function GameOverPrompt({
   toogleGameEnd,
 }) {
   return (
+    /*====================== Prompt if there is a winner and tie ========= */
     <div className="z-10 text-black w-screen h-screen fixed flex justify-center items-center bg-black bg-opacity-25">
       <div className="flex w-[300px] md:w-[400px] shadow-xl h-[250px] flex-col justify-around items-center py-4 px-12 rounded-md bg-white">
         <h1 className="font-extrabold ">Round Over!</h1>

@@ -4,6 +4,7 @@ import { playerScore } from '../data/appAnimation';
 
 function PlayerScore({ playerOne, playerTwo, isGameStart }) {
   return (
+    // Players Scoreboard
     <motion.div
       variants={playerScore}
       animate={isGameStart ? 'show' : 'hide'}

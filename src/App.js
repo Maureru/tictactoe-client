@@ -27,6 +27,7 @@ function App() {
       : false
   );
 
+  // Toogle DarkMode
   const toogleDark = () => {
     setIsDarkMode((prevMode) => !prevMode);
     Cookies.set('darkMode', !isDarkMode);
@@ -47,6 +48,8 @@ function App() {
 
     setCurrentPlayer('X');
   };
+
+  // End the game
   const endGame = async () => {
     // Save session data
     await axios.post(`${process.env.REACT_APP_API_URL}/game`, {
@@ -146,6 +149,7 @@ function App() {
     setIsPlayerModalOpen((prev) => !prev);
   };
 
+  // Update Board
   const handleClickBoard = (row, col) => {
     setBoard((prevBoard) => {
       const updatedBoard = [...prevBoard];
@@ -169,6 +173,7 @@ function App() {
 
   /* Check If there is a Winner or Tie */
   useEffect(() => {
+    // Checking if Tie
     if (board.flat().every((element) => element !== '')) {
       setWinner('tie');
       setIsGameOver(true);
@@ -212,10 +217,9 @@ function App() {
       setIsGameOver(true);
       setScoreUpdater((prev) => prev + 1);
     }
-
-    // Checking if Tie
   }, [board]);
 
+  //Update the player score
   useEffect(() => {
     if (winner === players.PlayerOne.value) {
       setPlayers((prev) => ({
@@ -274,6 +278,7 @@ function App() {
         ) : null}
         <ThemeMode isDarkMode={isDarkMode} toogleDark={toogleDark} />
 
+        {/* ========= Main Game Screen ========== */}
         <motion.div
           className="fixed top-0 left-0 w-full h-full flex justify-center items-center"
           variants={gameHero}
@@ -287,6 +292,8 @@ function App() {
             </div>
           </div>
         </motion.div>
+
+        {/*  ============ Home Screen ====================== */}
         <motion.div
           className="fixed top-0 left-0 w-full h-full flex justify-center items-center"
           variants={homeHero}

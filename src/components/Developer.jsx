@@ -14,6 +14,7 @@ function Developer() {
 
   return (
     <>
+      {/* =========== Developer Info and Socials ============ */}
       <div
         onClick={toogleClick}
         className="hover:bg-slate-200 hover:text-black flex gap-2 items-center p-2 z-50 rounded-lg cursor-pointer fixed bottom-2 right-2"
